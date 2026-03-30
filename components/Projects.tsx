@@ -2,7 +2,7 @@
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ExternalLink, Eye } from "lucide-react";
+import { DownloadIcon, ExternalLink, Eye } from "lucide-react";
 import { motion, useScroll, useTransform } from "motion/react";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
@@ -29,6 +29,26 @@ const projects = [
     liveUrl: "https://app.sbusiness.xyz",
     detailsUrl: "https://upscalebd.com/case-studies/2",
     githubUrl: "#",
+  },
+  {
+    title: "Smart School",
+    description:
+      "A comprehensive school management system for managing students, teachers, classes, attendance, and results. Currently under development.",
+    image: "/images/smart-school.png",
+    tags: ["React", "Ant Design", "TypeScript", "RTK Query"],
+    liveUrl: "https://smart-school-frontend-five.vercel.app",
+    detailsUrl: "",
+    githubUrl: "#",
+  },
+  {
+    title: "ManpowerX App",
+    description:
+      "The ManpowerX app is currently in the design phase, and development is paused",
+    image: "/images/manpowerX-app.jpeg",
+    tags: ["React", "React Native", "TypeScript"],
+    detailsUrl: "",
+    githubUrl: "#",
+    downloadLink: "/files/ManpowerX.apk",
   },
 ];
 
@@ -127,18 +147,20 @@ export default function Projects() {
                 </div>
 
                 <div className="flex items-center gap-6 pt-8 border-t border-white/10">
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center gap-2 text-white hover:text-indigo-400 transition-colors group"
-                  >
-                    <span className="font-medium">Live Demo</span>
-                    <ExternalLink
-                      size={18}
-                      className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
-                    />
-                  </a>
+                  {!!project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center gap-2 text-white hover:text-indigo-400 transition-colors group"
+                    >
+                      {/*<span className="font-medium">Live Demo</span>*/}
+                      <ExternalLink
+                        size={18}
+                        className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+                      />
+                    </a>
+                  )}
 
                   {!!project.detailsUrl && (
                     <a
@@ -147,8 +169,23 @@ export default function Projects() {
                       rel="noreferrer"
                       className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors group"
                     >
-                      <span className="font-medium">Details</span>
+                      {/*<span className="font-medium">Details</span>*/}
                       <Eye
+                        size={18}
+                        className="group-hover:scale-110 transition-transform"
+                      />
+                    </a>
+                  )}
+
+                  {!!project.downloadLink && (
+                    <a
+                      href={project.downloadLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors group"
+                    >
+                      {/*<span className="font-medium">Details</span>*/}
+                      <DownloadIcon
                         size={18}
                         className="group-hover:scale-110 transition-transform"
                       />
