@@ -121,7 +121,7 @@ export default function Projects() {
                     alt={project.title}
                     width={1200}
                     height={2000}
-                    className="w-full h-auto transition-transform duration-[2000ms] ease-linear group-hover:-translate-y-[40%]"
+                    className="w-full h-full object-cover object-top transition-all duration-[3000ms] ease-linear group-hover:object-bottom"
                   />
                 </div>
               </motion.div>
